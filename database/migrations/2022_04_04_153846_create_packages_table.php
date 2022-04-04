@@ -15,6 +15,13 @@ class CreatePackagesTable extends Migration
     {
         Schema::create('packages', function (Blueprint $table) {
             $table->id();
+
+            $table->unsignedSmallInteger('codPackages')->unique();
+            $table->string('country', 30);
+            $table->unsignedTinyInteger('days');
+            $table->decimal('price', 9, 2);
+            $table->text('description')->nullable();
+
             $table->timestamps();
         });
     }
